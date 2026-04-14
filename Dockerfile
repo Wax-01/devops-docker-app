@@ -1,3 +1,9 @@
+# ====== STAGE 1: build ======
+FROM python:3.12-alpine AS builder
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
 WORKDIR /build
 COPY app/requirements.txt .
 RUN apk add --no-cache build-base \
